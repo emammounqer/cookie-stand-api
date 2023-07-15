@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="space-y-8 p-8">
+
+  <h1 class="text-4xl text-center">All the Cookie Stands</h1>
+  <div
+    class="w-1/2 mx-auto text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+    <table class="table-auto w-full text-left">
+      <thead>
+        <tr>
+          <th>id</th>
+          <th>Location</th>
+          <th>Owner</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        {% for cookie_stand in cookie_stands %}
+
+
+        <tr>
+          <td> <a href="{% url 'cookie_stand_detail' cookie_stand.pk %}" aria-current="true"
+              class="text-blue">{{cookie_stand.pk}}</a>
+          </td>
+          <td>{{cookie_stand.location}}</td>
+          <td>{{cookie_stand.owner}}</td>
+          <td>{{cookie_stand.description}}</td>
+        <tr>
+
+          {% endfor %}
+      </tbody>
+
+    </table>
+
+  </div>
+
+</div>
+
+{% endblock content %}
